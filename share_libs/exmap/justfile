@@ -1,0 +1,22 @@
+root := justfile_directory()
+
+default:
+  @just --choose
+
+help:
+  just --list
+
+make_linux_66:
+  make -C $(nix-build -E '(import <nixpkgs> {}).linux_6_6.dev' --no-out-link)/lib/modules/*/build M=$(pwd)/module modules
+
+insert:
+  #!/usr/bin/env bash
+  if lsmod | grep -q exmap; then rmmod exmap; fi
+  just --justfile {{justfile()}} make_linux_66
+  sudo insmod module/exmap.ko
+
+insert_nullblk:
+  #!/usr/bin/env bash
+  if lsmod | grep -q null_blk; then 
+  modprobe --first-time null_blk no_sched=1 irqmode=0 queue_mode=0 completion_nsec=0 hw_queue_depth=128 bs=4096
+  fi

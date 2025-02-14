@@ -124,6 +124,7 @@ add_custom_target(check-tidy-full ${BUILD_SUPPORT_DIR}/run_clang_tidy.py -clang-
 # ---------------------------------------------------------------------------
 # Sources & Benchmark
 # ---------------------------------------------------------------------------
+include_directories(share_libs/exmap/module)
 file(GLOB_RECURSE LEANSTORE_SOURCE_FILES src/**.cc src/**/**.cc src/**/**.h)
 add_library(leanstore STATIC ${LEANSTORE_SOURCE_FILES})
 target_link_libraries(leanstore PUBLIC ${THIRD_PARTY_DEPENDENCIES})
