@@ -13,6 +13,6 @@ ExternalProject_Add(
 ExternalProject_Get_Property(Libyyjson INSTALL_DIR)
 
 add_library(yyjson INTERFACE)
-target_link_libraries(yyjson INTERFACE ${INSTALL_DIR}/lib/libyyjson.a)
+target_link_libraries(yyjson INTERFACE ${INSTALL_DIR}/lib64/libyyjson.a)
 target_include_directories(yyjson INTERFACE ${INSTALL_DIR}/include)
 add_dependencies(yyjson Libyyjson)

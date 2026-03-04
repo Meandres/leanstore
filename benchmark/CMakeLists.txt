@@ -48,6 +48,7 @@ add_benchmark(SQLite_YCSB main/ycsb/sqlite3_ycsb.cc)
 add_benchmark(WiredTiger_YCSB main/ycsb/wiredtiger_ycsb.cc)
 add_benchmark(MicroSparsePTE micro/sparse_pte.cc)
 add_benchmark(MicroRDTSC micro/rdtsc.cc)
+add_benchmark(MicroMVCCReadOverhead micro/mvcc_read_overhead.cc)
 
 # ---------------------------------------------------------------------------
 # Tests for custom prototypes

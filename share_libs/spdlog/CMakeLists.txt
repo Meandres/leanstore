@@ -13,6 +13,6 @@ ExternalProject_Add(
 ExternalProject_Get_Property(Libspdlog INSTALL_DIR)
 
 add_library(spdlog INTERFACE)
-target_link_libraries(spdlog INTERFACE ${INSTALL_DIR}/lib/libspdlog.a)
+target_link_libraries(spdlog INTERFACE ${INSTALL_DIR}/lib64/libspdlog.a)
 target_include_directories(spdlog INTERFACE ${INSTALL_DIR}/include)
 add_dependencies(spdlog Libspdlog fmt)

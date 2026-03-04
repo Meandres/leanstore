@@ -13,6 +13,6 @@ ExternalProject_Add(
 ExternalProject_Get_Property(Libfmt INSTALL_DIR)
 
 add_library(fmt INTERFACE)
-target_link_libraries(fmt INTERFACE ${INSTALL_DIR}/lib/libfmt.a)
+target_link_libraries(fmt INTERFACE ${INSTALL_DIR}/lib64/libfmt.a)
 target_include_directories(fmt INTERFACE ${INSTALL_DIR}/include)
 add_dependencies(fmt Libfmt)
